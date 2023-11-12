@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
 
-function App() {
+export default function App() {
+  const [step, setStep] = useState(1);
+  const [count, setCounter] = useState(0);
+
+  const [date, setDate] = useState(new Date());
+
+  const incrementStep = () => {
+    setStep(step + 1);
+  };
+
+  const decrementStep = () => {
+    setStep(step - 1);
+  };
+
+  const countSteps = () => {
+    setCounter(count + step);
+    const newDate = new Date(date.getTime());
+    newDate.setDate(date.getDate() + step);
+    setDate(newDate);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
+      <div>
+        <span>Step </span>
+        <button onClick={decrementStep}>-</button>
+        <span>{step}</span>
+        <button onClick={incrementStep}>+</button>
+      </div>
+      <div>
+        <span>Count: </span>
+        <span>{count}</span>
+        <button onClick={countSteps}>Count</button>
+      </div>
+      <div>
+        {count === 0 ? (
+          <h3>Today date is : {date.toLocaleDateString()}</h3>
+        ) : null}
+        {count > 0 ? (
+          <h3>
+            The date after {count} days is : {date.toLocaleDateString()}
+          </h3>
+        ) : null}
+        {count < 0 ? (
+          <h3>
+            The date before {count} days was: {date.toLocaleDateString()}
+          </h3>
+        ) : null}
+      </div>
     </div>
   );
 }
-
-export default App;
