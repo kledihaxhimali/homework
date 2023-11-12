@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function App() {
   const [step, setStep] = useState(1);
@@ -24,7 +24,7 @@ export default function App() {
   return (
     <div
       style={{
-        display: "flex",
+        display: "block",
         alignItems: "center",
         justifyContent: "center",
         height: "100vh",
@@ -52,7 +52,7 @@ export default function App() {
         ) : null}
         {count < 0 ? (
           <h3>
-            The date before {count} days was: {date.toLocaleDateString()}
+            The date before {count * -1} days was: {date.toLocaleDateString()}
           </h3>
         ) : null}
       </div>
