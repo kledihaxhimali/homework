@@ -20,6 +20,8 @@ export default function Appp() {
     newDate.setDate(date.getDate() + step);
     setDate(newDate);
 
+    //
+
     const DayOfWeek = newDate.toLocaleString("en-US", {
       weekday: "long",
     });
@@ -54,6 +56,7 @@ export default function Appp() {
         {/* <button onClick={countStepsn}>Countn</button> */}
       </div>
       <div>
+        {/* template literals */}
         {count === 0 ? (
           <h3>
             Today date is : {DayOfWeek} {date.toLocaleDateString()}
