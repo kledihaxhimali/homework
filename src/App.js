@@ -35,8 +35,8 @@ export default function App() {
   return (
     <div
       style={{
-        display: "block",
         alignItems: "center",
+        textAlign: "center",
         justifyContent: "center",
         height: "100vh",
       }}
