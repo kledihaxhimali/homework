@@ -3,7 +3,6 @@ import { useState } from "react";
 export default function App() {
   const [step, setStep] = useState(1);
   const [count, setCounter] = useState(0);
-
   const [date, setDate] = useState(new Date());
   const [DayOfWeek, setDayOfWeek] = useState("");
 
