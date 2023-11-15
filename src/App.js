@@ -5,6 +5,7 @@ export default function App() {
   const [count, setCounter] = useState(0);
 
   const [date, setDate] = useState(new Date());
+  const [DayOfWeek, setDayOfWeek] = useState("");
 
   const incrementStep = () => {
     setStep(step + 1);
@@ -19,6 +20,11 @@ export default function App() {
     const newDate = new Date(date.getTime());
     newDate.setDate(date.getDate() + step);
     setDate(newDate);
+
+    const DayOfWeek = newDate.toLocaleString("en-US", {
+      weekday: "long",
+    });
+    setDayOfWeek(DayOfWeek);
   };
   // const countStepsn = () => {
   //   setCounter(count + step);
@@ -50,16 +56,20 @@ export default function App() {
       </div>
       <div>
         {count === 0 ? (
-          <h3>Today date is : {date.toLocaleDateString()}</h3>
+          <h3>
+            Today date is : {DayOfWeek} {date.toLocaleDateString()}
+          </h3>
         ) : null}
         {count > 0 ? (
           <h3>
-            The date after {count} days is : {date.toLocaleDateString()}
+            The date after {count} days is : {DayOfWeek}{" "}
+            {date.toLocaleDateString()}
           </h3>
         ) : null}
         {count < 0 ? (
           <h3>
-            The date before {count * -1} days was: {date.toLocaleDateString()}
+            The date before {count * -1} days was: {DayOfWeek}{" "}
+            {date.toLocaleDateString()}
           </h3>
         ) : null}
       </div>
