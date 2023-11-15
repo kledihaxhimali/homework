@@ -20,6 +20,12 @@ export default function App() {
     newDate.setDate(date.getDate() + step);
     setDate(newDate);
   };
+  // const countStepsn = () => {
+  //   setCounter(count + step);
+  //   const newDate = new Date(date.getTime());
+  //   newDate.setDate(date.getDate() - step);
+  //   setDate(newDate);
+  // };
 
   return (
     <div
@@ -40,6 +46,7 @@ export default function App() {
         <span>Count: </span>
         <span>{count}</span>
         <button onClick={countSteps}>Count</button>
+        {/* <button onClick={countStepsn}>Countn</button> */}
       </div>
       <div>
         {count === 0 ? (
